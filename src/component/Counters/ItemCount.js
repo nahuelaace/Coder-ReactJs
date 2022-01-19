@@ -24,7 +24,6 @@ const ItemCount = ({min, max, onAdd}) => {
 
 
     return (
-
         <div className='text-center'>
 
             <h1>{counter}</h1>
@@ -33,7 +32,7 @@ const ItemCount = ({min, max, onAdd}) => {
 
             <button onClick={resta}>-</button>
             <br/> <br/>
-            <button onClick={mostrar}>Agregar al carrito</button>
+            <button onClick={()=>onAdd(counter)}>Agregar al carrito</button>
 
             {
                 show && <h1>{counter}</h1>
