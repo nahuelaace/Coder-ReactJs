@@ -1,26 +1,25 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
+
 
 
 const ItemCount = ({min, max, onAdd}) => {
 
     const [counter, setCounter] = useState(min)
-    const [show, setShow] = useState(false)
+
 
     const suma = () => {
 
-        counter < max ? setCounter(counter+1) : alert("El maximo de compra es 10")
+        counter < max ? setCounter(counter+1) : alert("Stock Maximo chaval")
 
     }
 
     const resta = () => {
 
-        counter > min ? setCounter(counter-1) : alert("El minimo de compra es 1") 
+        counter > min ? setCounter(counter-1) : alert("Minimo de compra") 
 
     }
 
-    const mostrar = () => {
-        setShow(!show)
-    }
+
 
 
     return (
@@ -34,14 +33,8 @@ const ItemCount = ({min, max, onAdd}) => {
             <br/> <br/>
             <button onClick={()=>onAdd(counter)}>Agregar al carrito</button>
 
-            {
-                show && <h1>{counter}</h1>
-            }
-
         </div>
     )
 }
-
-
 
 export default ItemCount

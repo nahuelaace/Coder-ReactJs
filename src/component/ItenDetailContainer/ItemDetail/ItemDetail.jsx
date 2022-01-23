@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React from "react"
+import { useState } from "react";
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
-import ItemCount from '../../Counters/ItemCount';
+import { Link } from "react-router-dom";
+import { useCartContext } from "../../../context/cartContext";
+import ItemCount from "../../Counters/ItemCount";
 
 
 const ItemDetail = ({producto}) => {
 
     const [show, setShow] = useState(true)
-
+    
     const onAdd = (counter) => {
         setShow(false)
+        agregarAlCarrito({...producto, cantidad: counter})
     }
+
+    const {agregarAlCarrito} = useCartContext
+
 
     return (
         <div>
