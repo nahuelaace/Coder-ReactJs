@@ -4,18 +4,7 @@ import { useCartContext } from '../../context/cartContext'
 import ItemCart from './ItemCart'
 
 const Cart = () => {
-    const { cartList, vaciarCarrito, total} = useCartContext()
-
-    const [carritoVacio, setCarritoVacio] =useState(true)
-
- 
-        if (cartList === []) {
-            setCarritoVacio(true)
-        } else {
-            setCarritoVacio(false)
-        }
-
-    
+    const { cartList, vaciarCarrito, total} = useCartContext()    
 
     return (
         <div>
@@ -29,7 +18,6 @@ const Cart = () => {
                     
                 <div>
                     {cartList.map(prod => <ItemCart prod = {prod}/>)}                      
-                    <p>El carrito no esta vacio</p>
 
                     <h3>TOTAL: {total()}</h3>
                     <button onClick={vaciarCarrito}>Vaciar Carrito</button>
