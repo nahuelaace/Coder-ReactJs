@@ -1,5 +1,5 @@
 import React from "react"
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../../context/cartContext";
@@ -9,13 +9,17 @@ import ItemCount from "../../Counters/ItemCount";
 const ItemDetail = ({producto}) => {
 
     const [show, setShow] = useState(true)
-    
+    const {cartList, agregarAlCarrito} = useCartContext()
+
+
+    console.log(cartList)
+
     const onAdd = (counter) => {
         setShow(false)
         agregarAlCarrito({...producto, cantidad: counter})
     }
 
-    const {agregarAlCarrito} = useCartContext
+    
 
 
     return (
@@ -31,7 +35,12 @@ const ItemDetail = ({producto}) => {
                 <Card.Text>
                     
                     {
-                        show ? <ItemCount min={1} max={10} onAdd={onAdd}/> :
+                        show ? 
+                        
+                        <ItemCount min={1} max={10} onAdd={onAdd}/> 
+                        
+                        :
+                        
                         <div>
 
                             <Link to='/'><button>Continuar compra</button></Link>

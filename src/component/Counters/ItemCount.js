@@ -9,7 +9,7 @@ const ItemCount = ({min, max, onAdd}) => {
 
     const suma = () => {
 
-        counter < max ? setCounter(counter+1) : alert("Stock Maximo chaval")
+        counter < max ? setCounter(counter+1) : alert("Stock Maximo")
 
     }
 
